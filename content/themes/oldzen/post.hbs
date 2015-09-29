@@ -1,0 +1,37 @@
+{{!< default}}
+
+{{#post}}
+
+  <article class="{{post_class}}">
+    <header>
+      <a id="back-button" class="btn small square" href="javascript:history.back()">« Back</a>
+      <div class="post meta">
+        <time datetime="{{date format="DD MMM YYYY"}}">{{date format="DD MMM YYYY"}}</time>
+        <span class="post tags">{{tags prefix="in " separator=" "}}</span>
+        {{!-- <span class="post author">
+          <img src="{{author.image}}" alt="profile image for {{author.name}}"/> by {{author.name}}
+        </span> --}}
+        <span class="post reading-time"> – <span></span> read.</span>
+      </div>
+
+      {{#if image}}
+      <a href={{url}}><img id="post-image" src={{image}} alt="{{{title}}}">
+        <h1 id="post-title">{{{title}}}.</h1>
+      </a>
+      {{else}}
+      <a href={{url}}>
+        <h1 id="post-title">{{{title}}}.</h1>
+      </a>
+      {{/if}}
+
+    </header>
+
+    <section class="{{post_class}}">
+      {{content}}
+    </section>
+
+  </article>
+
+  {{> comments}}
+
+{{/post}}
